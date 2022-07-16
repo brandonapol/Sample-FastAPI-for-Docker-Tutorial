@@ -1,4 +1,18 @@
 FROM python 
 
-# WORKDIR /app
+COPY app app
+WORKDIR /app
 
+COPY requirements.txt requirements.txt 
+RUN python3 -m venv venv 
+RUN venv/bin/pip install -r requirements.txt 
+RUN pip3 install -r requirements.txt
+
+COPY boot.sh boot.sh 
+RUN chmod +x boot.sh 
+
+EXPOSE 8000
+
+RUN ./boot.sh
+
+CMD ["uvicorn", "app:app", "--reload"]
