@@ -11,8 +11,8 @@ RUN pip3 install -r requirements.txt
 COPY boot.sh boot.sh 
 RUN chmod +x boot.sh 
 
-EXPOSE 8000
+EXPOSE 5000
 
 RUN ./boot.sh
 
-CMD ["uvicorn", "app:app", "--reload"]
+CMD ["uvicorn", "app:app", "--reload", "--host=0.0.0.0"]
