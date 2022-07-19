@@ -12,6 +12,8 @@ COPY boot.sh boot.sh
 RUN chmod +x boot.sh 
 
 EXPOSE 5000
+EXPOSE 8080
+EXPOSE 8000
 
 RUN ./boot.sh
 
