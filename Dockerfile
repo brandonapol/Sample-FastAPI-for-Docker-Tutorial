@@ -12,9 +12,7 @@ COPY boot.sh boot.sh
 RUN chmod +x boot.sh 
 
 EXPOSE 5000
-EXPOSE 8080
-EXPOSE 8000
 
 RUN ./boot.sh
 
-CMD ["uvicorn", "app:app", "--reload", "--host=0.0.0.0"]
+CMD ["uvicorn", "app:app", "--reload", "--port=5000", "--host=0.0.0.0"]
