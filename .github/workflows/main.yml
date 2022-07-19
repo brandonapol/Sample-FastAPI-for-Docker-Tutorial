@@ -3,7 +3,7 @@ name: CI to Docker Hub
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "master" branch
+  # Triggers the workflow on push or pull request events but only for the "complete" branch
   push:
     branches: [ "complete" ]
   pull_request:
@@ -42,7 +42,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/walkthrough:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/brandon-ct-walkthrough:latest
           
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
